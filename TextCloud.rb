@@ -18,6 +18,7 @@ f.each_line do |line|
         end
     end
 end
+words.map!{|c| c.gsub(/[^a-z0-9\-]/,'') }
 
 # Sets values to word frequency
 wordsMap = words.tally
@@ -46,7 +47,6 @@ top50.each do |k, v|
         re = rand(0..255)
         gr = rand(0..255)
         bl = rand(0..255)
-        # HTMLfile.write "<span style = \"font-size:", (v * sizeRange) + 100, "%; color:black\">", k, "</span>\n"
         HTMLfile.write "<span style = \"font-size:", (v * sizeRange) + 100, "%; color:rgb(", re, ",", gr, ",", bl, "\")>", k, "                           </span>"
     end
 end
